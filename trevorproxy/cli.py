@@ -42,7 +42,7 @@
         parser.add_argument(
             "-l",
             "--listen-address",
-            default="127.0.0.1",
+            default="0.0.0.0",
             help="Listen address for SOCKS server (default: 127.0.0.1)",
         )
         parser.add_argument("-q", "--quiet", action="store_true", help="Be quiet")
