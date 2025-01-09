@@ -18,6 +18,8 @@ A powerful SOCKS proxy in Python that randomizes source IP addresses. Rotate tra
 
 ```bash
 sudo apt update && sudo apt install iptables python3-pip git nano
+```
+```bash
 sudo pip install git+https://github.com/lekr74/Dynasocks-proxy --break-system-packages
 ```
 
