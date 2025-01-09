@@ -1,0 +1,12 @@
+[Unit]
+Description=TrevorProxy Service
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/trevorproxy subnet -s <ipv6-bloc-to-use/60> -i lo
+Restart=always
+User=root
+WorkingDirectory=/usr/local/bin
+
+[Install]
+WantedBy=multi-user.target
