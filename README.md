@@ -1,4 +1,4 @@
-# TREVORproxy
+# Dynasocks-Proxy
 
 A powerful SOCKS proxy in Python that randomizes source IP addresses. Rotate traffic through SSH tunnels or leverage billions of unique IPv6 addresses.
 
@@ -85,4 +85,4 @@ ssh_hosts         SSH hosts (user@host format)
 
 ---
 
-Created by [@thetechr0mancer](https://twitter.com/thetechr0mancer) and modified by Lekr74
+Base on TREVORProxy and modified by Lekr74
