@@ -19,7 +19,7 @@ A powerful SOCKS proxy in Python that randomizes source IP addresses. Rotate tra
 
 ```bash
 sudo apt update && sudo apt install iptables python3-pip git nano
-sudo pip install git+https://github.com/lekr74/trevorproxy --break-system-packages
+sudo pip install git+https://github.com/lekr74/masterproxy-test --break-system-packages
 ```
 
 ### Post-Installation Setup
@@ -27,9 +27,8 @@ sudo pip install git+https://github.com/lekr74/trevorproxy --break-system-packag
 1. Modify `cli.py` in `/usr/local/lib/python3.X/dist-packages/trevorproxy` to configure:
    - Username
    - Password
-   - Listening IP
-
-2. Install service file in `/etc/systemd/system/` and edit to configure used subnets
+2. Modify `subnets_config.json` in the same directory to configure subnets to use
+3. Install service file in `/etc/systemd/system/` and edit to configure used subnets
 
 ## Usage Examples
 
@@ -37,10 +36,8 @@ sudo pip install git+https://github.com/lekr74/trevorproxy --break-system-packag
 
 ```bash
 # Start proxy with single subnet
-sudo trevorproxy subnet -s dead:beef::0/64 -i eth0
+sudo /usr/local/bin/trevorproxy subnet -i lo
 
-# Use multiple subnets
-sudo trevorproxy subnet -s subnet1::/64 -s subnet2::/64 -i lo
 
 # Test the connection
 curl --proxy socks5://127.0.0.1:1080 -6 api64.ipify.org
