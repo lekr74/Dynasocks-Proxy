@@ -7,9 +7,8 @@ A powerful SOCKS proxy in Python that randomizes source IP addresses. Rotate tra
 
 ## Key Features
 
-- **Subnet Proxy Mode**: Utilize Linux AnyIP to send traffic from an entire IPv6 subnet
-- **SSH Proxy Mode**: Round-robin traffic through multiple SSH tunnels
-- **High Scalability**: Support for over 18 quintillion unique IPv6 addresses (with /64 subnet)
+- **Subnet Proxy Mode**: Utilize Linux AnyIP to send traffic from entire IPv6 subnets
+- **Multiple Subnets**: Rotate within multiple subnets for more diversity
 - **WAF Bypass**: Rotate source IPs to avoid rate limiting and blocking
 - **Clean Traffic**: Maintains full SOCKS functionality for legitimate return traffic
 
@@ -19,7 +18,7 @@ A powerful SOCKS proxy in Python that randomizes source IP addresses. Rotate tra
 
 ```bash
 sudo apt update && sudo apt install iptables python3-pip git nano
-sudo pip install git+https://github.com/lekr74/masterproxy-test --break-system-packages
+sudo pip install git+https://github.com/lekr74/Dynasocks-proxy --break-system-packages
 ```
 
 ### Post-Installation Setup
@@ -43,41 +42,15 @@ sudo /usr/local/bin/trevorproxy subnet -i lo
 curl --proxy socks5://127.0.0.1:1080 -6 api64.ipify.org
 ```
 
-### SSH Tunnel Mode
-
-```bash
-# Configure proxychains
-echo "socks5 127.0.0.1 1080" >> /etc/proxychains.conf
-
-# Start proxy with multiple SSH hosts
-trevorproxy ssh root@1.2.3.4 root@4.3.2.1
-
-# Test the connection
-proxychains curl ifconfig.me
-```
-
 ## Command Line Interface
 
-### Global Options
-```
--p PORT           SOCKS server port (default: 1080)
--l ADDRESS        Listen address (default: 127.0.0.1)
--q, --quiet       Quiet mode
--v, --debug       Verbose mode
-```
 
 ### Subnet Mode Options
 ```
 -i INTERFACE      Network interface
--s SUBNET         Source subnet(s)
+-s SUBNET         Source subnet(s) (multiple -s to use multiple subnets)
 ```
 
-### SSH Mode Options
-```
--k KEY            SSH key file
---base-port PORT  Base port for SOCKS proxies (default: 32482)
-ssh_hosts         SSH hosts (user@host format)
-```
 
 ## Demo
 
