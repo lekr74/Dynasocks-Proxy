@@ -4,6 +4,7 @@ import logging
     import time
     import json
     from pathlib import Path
+    import os
     from .errors import *
     import subprocess as sp
     from .cyclic import ipgen
@@ -17,7 +18,11 @@ import logging
             self.lock = threading.Lock()
             self.socks_username = socks_username
             self.socks_password = socks_password
-            self.config_file = Path(config_file)
+            
+            # Resolve config file path relative to the trevorproxy package
+            package_dir = Path(__file__).resolve().parent.parent
+            self.config_file = package_dir / config_file
+            
             self.subnets = []
             self.interface = interface
             self.version = version
