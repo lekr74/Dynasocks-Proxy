@@ -22,8 +22,8 @@ from lib.ssh import SSHLoadBalancer
 from lib.subnet import SubnetProxy
 
 # Credentials for SOCKS authentication
-SOCKS_USERNAME = "corentin"
-SOCKS_PASSWORD = "corentin24"
+SOCKS_USERNAME = "user"
+SOCKS_PASSWORD = "password"
 
 log = logging.getLogger("trevorproxy.cli")
 
